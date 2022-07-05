@@ -2,6 +2,8 @@ const playPauseBtn = document.querySelector(".play-pause-btn");
 const fullScreenBtn = document.querySelector(".full-screen-btn");
 const miniPlayerBtn = document.querySelector(".mini-player-btn");
 const theaterBtn = document.querySelector(".theater-btn");
+const muteBtn = document.querySelector(".mute-btn");
+const volumeSlider = document.querySelector(".volume-slider");
 const videoContainer = document.querySelector(".video-container");
 const video = document.querySelector("video");
 
@@ -17,24 +19,53 @@ document.addEventListener("keydown", (e) => {
     case "f":
       toggleFullScreenMode();
       break;
-    /*case "t":
-      toggleTheaterMode()
-      break
+    case "t":
+      toggleTheaterMode();
+      break;
     case "i":
-      toggleMiniPlayerMode()
-      break*/
+      toggleMiniPlayerMode();
+      break;
+    case "m":
+      toggleMute();
+      break;
   }
+});
+// Volume
+muteBtn.addEventListener("click", toggleMute);
+
+volumeSlider.addEventListener("input", (e) => {
+  video.volume = e.target.value;
+  video.muted = e.target.value === 0;
+});
+
+function toggleMute() {
+  video.muted = !video.muted;
+}
+
+video.addEventListener("volumechange", () => {
+  volumeSlider.value = video.volume;
+  let volumeLevel;
+  if (video.muted || video.volume === 0) {
+    volumeSlider.value = 0;
+    volumeLevel = "muted";
+  } else if (video.volume >= 0.5) {
+    volumeLevel = "high";
+  } else {
+    volumeLevel = "low";
+  }
+
+  videoContainer.dataset.volumeLevel = volumeLevel;
 });
 
 // View Modes
 
-//theaterBtn.addEventListener("click", toggleTheaterMode);
+theaterBtn.addEventListener("click", toggleTheaterMode);
 fullScreenBtn.addEventListener("click", toggleFullScreenMode);
-//miniPlayerBtn.addEventListener("click", toggleMiniPlayerMode);
+miniPlayerBtn.addEventListener("click", toggleMiniPlayerMode);
 
-/*function toggleTheaterMode() {
+function toggleTheaterMode() {
   videoContainer.classList.toggle("theater");
-}*/
+}
 
 function toggleFullScreenMode() {
   if (document.fullscreenElement == null) {
@@ -48,11 +79,11 @@ document.addEventListener("fullscreenchange", () => {
   videoContainer.classList.toggle("full-screen", document.fullscreenElement);
 });
 
-/*function toggleMiniPlayerMode() {
-  if (videoContainer.classList.contains('mini-player')) {
-    document.exitPictureInPicture()
+function toggleMiniPlayerMode() {
+  if (videoContainer.classList.contains("mini-player")) {
+    document.exitPictureInPicture();
   } else {
-    video.requestPictureInPicture()
+    video.requestPictureInPicture();
   }
 }
 
@@ -62,7 +93,7 @@ video.addEventListener("enterpictureinpicture", () => {
 
 video.addEventListener("leavepictureinpicture", () => {
   videoContainer.classList.remove("mini-player");
-});*/
+});
 
 // Play/Pause
 playPauseBtn.addEventListener("click", togglePlay);
