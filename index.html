@@ -9,13 +9,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="video-container paused">
+    <div class="video-container">
         <div class="video-controls-container">
             <div class="timeline-container"></div> 
             <div class="controls">
                 <button class="play-pause-btn">
                     <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
                     <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <!--<button class="mini-player-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M41 17.5V11h-6.5V8H41q1.2 0 2.1.9.9.9.9 2.1v6.5Zm-37 0V11q0-1.2.9-2.1Q5.8 8 7 8h6.5v3H7v6.5ZM34.5 40v-3H41v-6.5h3V37q0 1.2-.9 2.1-.9.9-2.1.9ZM7 40q-1.2 0-2.1-.9Q4 38.2 4 37v-6.5h3V37h6.5v3Zm28-6H13q-1.25 0-2.125-.875T10 31V17q0-1.25.875-2.125T13 14h22q1.25 0 2.125.875T38 17v14q0 1.25-.875 2.125T35 34Zm-22-3h22V17H13v14Zm0 0V17v14Z"/></svg>
+                </button>
+                <button class="theater-btn">
+                    <svg class="tall" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M7 40q-1.2 0-2.1-.9Q4 38.2 4 37V11q0-1.2.9-2.1Q5.8 8 7 8h34q1.2 0 2.1.9.9.9.9 2.1v26q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h34V11H7v26Zm0 0V11v26Z"/></svg>
+                    <svg class="wide" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M9 34q-1.2 0-2.1-.9Q6 32.2 6 31V17q0-1.2.9-2.1.9-.9 2.1-.9h30q1.2 0 2.1.9.9.9.9 2.1v14q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h30V17H9v14Zm0 0V17v14Z"/></svg>
+                </button>-->
+                <button class="full-screen-btn">
+                    <svg class="open" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                    <svg class="close" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>
                 </button>
             </div>
         </div>
