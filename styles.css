@@ -94,13 +94,13 @@ video {
     display: none;
 }
 
-.video-container.theater .tall {
+/*.video-container.theater .tall {
     display: none;
 }
 
 .video-container:not(.theater) .wide {
     display: none;
-}
+}*/
 
 .video-container.full-screen .open {
     display: none;
