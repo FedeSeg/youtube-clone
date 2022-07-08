@@ -4,6 +4,7 @@ const miniPlayerBtn = document.querySelector(".mini-player-btn");
 const theaterBtn = document.querySelector(".theater-btn");
 const muteBtn = document.querySelector(".mute-btn");
 const captionsBtn = document.querySelector(".captions-btn");
+const speedBtn = document.querySelector(".speed-btn");
 const currentTime = document.querySelector(".current-time");
 const totalTime = document.querySelector(".total-time");
 const volumeSlider = document.querySelector(".volume-slider");
@@ -44,6 +45,17 @@ document.addEventListener("keydown", (e) => {
       break;
   }
 });
+
+// Playback Speed
+
+speedBtn.addEventListener("click", changePlaybackSpeed);
+
+function changePlaybackSpeed() {
+  let newPlaybackRate = video.playbackRate + 0.25;
+  if (newPlaybackRate > 2) newPlaybackRate = 0.25;
+  video.playbackRate = newPlaybackRate;
+  speedBtn.textContent = `${newPlaybackRate}x`;
+}
 
 // Captions
 
