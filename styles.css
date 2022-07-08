@@ -153,3 +153,7 @@ video {
     flex-grow: 1;
 
 }
+
+.video-container.captions .captions-btn {
+    border-bottom: 3px solid red;
+}

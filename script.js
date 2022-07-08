@@ -3,6 +3,7 @@ const fullScreenBtn = document.querySelector(".full-screen-btn");
 const miniPlayerBtn = document.querySelector(".mini-player-btn");
 const theaterBtn = document.querySelector(".theater-btn");
 const muteBtn = document.querySelector(".mute-btn");
+const captionsBtn = document.querySelector(".captions-btn");
 const currentTime = document.querySelector(".current-time");
 const totalTime = document.querySelector(".total-time");
 const volumeSlider = document.querySelector(".volume-slider");
@@ -38,8 +39,25 @@ document.addEventListener("keydown", (e) => {
     case "l":
       skip(5);
       break;
+    case "c":
+      toggleCaptions();
+      break;
   }
 });
+
+// Captions
+
+const captions = video.textTracks[0];
+
+captions.mode = "hidden";
+
+captionsBtn.addEventListener("click", toggleCaptions);
+
+function toggleCaptions() {
+  const isHidden = captions.mode === "hidden";
+  captions.mode = isHidden ? "showing" : "hidden";
+  videoContainer.classList.toggle("captions", isHidden);
+}
 
 // Duration
 video.addEventListener("loadeddata", () => {
